@@ -1,26 +1,26 @@
 ### TabLayout在设置TabLayout.addTab(new Tab().)
 
-  /**
-     * The one-stop shop for setting up this {@link TabLayout} with a {@link ViewPager}.
-     *
-     * <p>This method will link the given ViewPager and this TabLayout together so that any
-     * changes in one are automatically reflected in the other. This includes adapter changes,
-     * scroll state changes, and clicks. The tabs displayed in this layout will be populated
-     * from the ViewPager adapter's page titles.</p>
-     *
-     * <p>After this method is called, you will not need this method again unless you want
-     * to change the linked ViewPager.</p>
-     *
-     * <p>If the given ViewPager is non-null, it needs to already have a
-     * {@link PagerAdapter} set.</p>
-     *
-     * @param viewPager The ViewPager to link, or {@code null} to clear any previous link.
-     */
-    public void setupWithViewPager(@Nullable final ViewPager viewPager) {
-        if (mViewPager != null && mPageChangeListener != null) {
-            // If we've already been setup with a ViewPager, remove us from it
-            mViewPager.removeOnPageChangeListener(mPageChangeListener);
-        }
+    /**
+       * The one-stop shop for setting up this {@link TabLayout} with a {@link ViewPager}.
+       *
+       * <p>This method will link the given ViewPager and this TabLayout together so that any
+       * changes in one are automatically reflected in the other. This includes adapter changes,
+       * scroll state changes, and clicks. The tabs displayed in this layout will be populated
+       * from the ViewPager adapter's page titles.</p>
+       *
+       * <p>After this method is called, you will not need this method again unless you want
+       * to change the linked ViewPager.</p>
+       *
+       * <p>If the given ViewPager is non-null, it needs to already have a
+       * {@link PagerAdapter} set.</p>
+       *
+       * @param viewPager The ViewPager to link, or {@code null} to clear any previous link.
+       */
+      public void setupWithViewPager(@Nullable final ViewPager viewPager) {
+          if (mViewPager != null && mPageChangeListener != null) {
+              // If we've already been setup with a ViewPager, remove us from it
+              mViewPager.removeOnPageChangeListener(mPageChangeListener);
+          }
 
         if (viewPager != null) {
             final PagerAdapter adapter = viewPager.getAdapter();
@@ -53,30 +53,30 @@
 
 ---
 
-private void setPagerAdapter(@Nullable final PagerAdapter adapter, final boolean addObserver) {
-        if (mPagerAdapter != null && mPagerAdapterObserver != null) {
-            // If we already have a PagerAdapter, unregister our observer
-            mPagerAdapter.unregisterDataSetObserver(mPagerAdapterObserver);
-        }
-
-        mPagerAdapter = adapter;
-
-        if (addObserver && adapter != null) {
-            // Register our observer on the new adapter
-            if (mPagerAdapterObserver == null) {
-                mPagerAdapterObserver = new PagerAdapterObserver();
+    private void setPagerAdapter(@Nullable final PagerAdapter adapter, final boolean addObserver) {
+            if (mPagerAdapter != null && mPagerAdapterObserver != null) {
+                // If we already have a PagerAdapter, unregister our observer
+                mPagerAdapter.unregisterDataSetObserver(mPagerAdapterObserver);
             }
-            adapter.registerDataSetObserver(mPagerAdapterObserver);
-        }
 
-        // Finally make sure we reflect the new adapter
-        populateFromPagerAdapter();
-    }
+            mPagerAdapter = adapter;
+
+            if (addObserver && adapter != null) {
+                // Register our observer on the new adapter
+                if (mPagerAdapterObserver == null) {
+                    mPagerAdapterObserver = new PagerAdapterObserver();
+                }
+                adapter.registerDataSetObserver(mPagerAdapterObserver);
+            }
+
+            // Finally make sure we reflect the new adapter
+            populateFromPagerAdapter();
+        }
     
 ---
 
-private void populateFromPagerAdapter() {
-        removeAllTabs();
+    private void populateFromPagerAdapter() {
+            removeAllTabs();
 
         if (mPagerAdapter != null) {
             final int adapterCount = mPagerAdapter.getCount();
