@@ -1,6 +1,8 @@
-### TabLayout在设置TabLayout.addTab(new Tab().)
+### TabLayout在设置TabLayout.addTab()不显示的问题
 
-    /**
+TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+tabLayout.addTab(tabLayout.newTab().setText("Tab"));
+      /**
        * The one-stop shop for setting up this {@link TabLayout} with a {@link ViewPager}.
        *
        * <p>This method will link the given ViewPager and this TabLayout together so that any
