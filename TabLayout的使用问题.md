@@ -3,22 +3,24 @@
     TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
     tabLayout.addTab(tabLayout.newTab().setText("Tab"));
     
-      /**
-       * The one-stop shop for setting up this {@link TabLayout} with a {@link ViewPager}.
-       *
-       * <p>This method will link the given ViewPager and this TabLayout together so that any
-       * changes in one are automatically reflected in the other. This includes adapter changes,
-       * scroll state changes, and clicks. The tabs displayed in this layout will be populated
-       * from the ViewPager adapter's page titles.</p>
-       *
-       * <p>After this method is called, you will not need this method again unless you want
-       * to change the linked ViewPager.</p>
-       *
-       * <p>If the given ViewPager is non-null, it needs to already have a
-       * {@link PagerAdapter} set.</p>
-       *
-       * @param viewPager The ViewPager to link, or {@code null} to clear any previous link.
-       */
+    
+         /**
+           * The one-stop shop for setting up this {@link TabLayout} with a {@link ViewPager}.
+           *
+           * <p>This method will link the given ViewPager and this TabLayout together so that any
+           * changes in one are automatically reflected in the other. This includes adapter changes,
+           * scroll state changes, and clicks. The tabs displayed in this layout will be populated
+           * from the ViewPager adapter's page titles.</p>
+           *
+           * <p>After this method is called, you will not need this method again unless you want
+           * to change the linked ViewPager.</p>
+           *
+           * <p>If the given ViewPager is non-null, it needs to already have a
+           * {@link PagerAdapter} set.</p>
+           *
+           * @param viewPager The ViewPager to link, or {@code null} to clear any previous link.
+           */
+       
       public void setupWithViewPager(@Nullable final ViewPager viewPager) {
           if (mViewPager != null && mPageChangeListener != null) {
               // If we've already been setup with a ViewPager, remove us from it
